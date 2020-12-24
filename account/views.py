@@ -11,7 +11,7 @@ def user_login(req):
             data = form.cleaned_data
             user = authenticate(req, username=data["username"], password=data["password"])
         if user is not None:
-            if user.is_active():
+            if user.is_active:
                 login(req,user)
                 return HttpResponse("Auth success")
             else:
